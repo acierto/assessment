@@ -39,7 +39,10 @@ let count_file_lines filename =
 ;;
 
 let get_extension file_name =
+  try
     let dotIndex = (String.rindex file_name '.') in
         let file_name_length = (String.length file_name) in
             String.sub file_name (dotIndex + 1) (file_name_length - dotIndex - 1)
+  with
+    Not_found -> ""
 ;;
