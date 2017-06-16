@@ -1,24 +1,12 @@
-## XebiaLabs Assessment
+##How to setup project
 
-### Requirements
- 
- As an input user has to point to a public GitHub repository.
- 
- #### User story 1
- 
- Show as a result the number of lines per language. So for example:
-  
-  JavaScript - 3500 lines
-  Java - 2000 lines
-  Scala - 1000 lines
-  
- The information has to be displayed in a browser and provided in real life, so not to wait till
- everything will be calculated, but reflect the progress.
- 
- #### User story 1
- 
- Show the same information for each collaborator separately.
-  
-  I.e.
-  
-  
+### Compile war for Web Container:
+
+define your PATH_TO_JAVAX_SERVLET_API (javax.servlet-api-3.1.0.jar)
+
+`ocamljava -cp $PATH_TO_JAVAX_SERVLET_API -I +javalib javalib.cmja -java-extensions -servlet http server.ml`
+`ocamljava -cp $PATH_TO_JAVAX_SERVLET_API -I +javalib javalib.cmja  -o server.war -war web.xml -servlet http server.cmj`
+
+### Compile main 
+
+`ocamljava str.cmja dir.ml -o count-lines.jar main.ml && java -jar count-lines.jar`
