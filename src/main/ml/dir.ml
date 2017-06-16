@@ -1,4 +1,5 @@
 open Str;;
+open String ;;
 
 let matched what where =
   Str.string_match (Str.regexp(".*" ^ what ^ ".*")) where 0
@@ -35,4 +36,10 @@ let lines_from_files filename =
 
 let count_file_lines filename =
   List.length (lines_from_files filename)
+;;
+
+let get_extension file_name =
+    let dotIndex = (String.rindex file_name '.') in
+        let file_name_length = (String.length file_name) in
+            String.sub file_name (dotIndex + 1) (file_name_length - dotIndex - 1)
 ;;
